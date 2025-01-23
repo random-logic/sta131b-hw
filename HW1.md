@@ -17,6 +17,7 @@ $$\hat\theta_{MLE} = \frac{-n}{\sum_{i=1}^n ln(1-X_i)} - 1$$
 #### (c)
 $$\hat\eta_{MLE} = \sqrt{\hat\theta_{MLE} + 1}$$
 
+\pagebreak
 # 2
 #### (a)
 ![img](hw1-2.svg)
@@ -37,6 +38,7 @@ $$\hat\xi_{MLE} = \sqrt{\frac{1}{n} \sum_{i = 1}^n (X_i - 2)^2}$$
 #### (c)
 $$\hat\alpha_{MLE} = log(\hat\xi_{MLE})$$
 
+\pagebreak
 # 3
 #### (a)
 ![img](hw1-3.svg)
@@ -58,6 +60,7 @@ $$\hat\beta_{MLE} = \begin{cases}
 DNE & \text{otherwise}
 \end{cases}$$
 
+\pagebreak
 # 4
 #### (a)
 ![img](hw1-4.svg)
@@ -77,6 +80,7 @@ min(X_i) & \text{if } max(X_i) < 1 \\
 DNE & \text{otherwise}
 \end{cases}$$
 
+\pagebreak
 # 5
 #### (a)
 ![img](hw1-5.svg)
@@ -113,6 +117,7 @@ To maximize $L(\sigma)$, we want to maximize $\sigma$.
 
 $$\hat\sigma_{MLE} = min(X_i)$$
 
+\pagebreak
 # 6
 $$\pi_2 = 4 \pi_1$$
 $$\pi_1 + \pi_2 + \pi_3 = 1$$
@@ -134,6 +139,7 @@ $$Y_1 + Y_2 - 5\pi_1Y_1 - 5\pi_1Y_2 = 5Y_3\pi_1$$
 $$Y_1 + Y_2 = \pi_1 * 5 (Y_1 + Y_2 + Y_3)$$
 $$(\hat\pi_1)_{MLE} = \frac{Y_1 + Y_2}{5 (Y_1 + Y_2 + Y_3)} = \frac{Y_1 + Y_2}{5n}$$
 
+\pagebreak
 # 7
 $$\pi_2 = 2\pi_1$$
 $$\pi_4 = 3\pi_1$$
@@ -169,6 +175,7 @@ $$Y_3(1 - \pi_3) = (Y_1 + Y_2 + Y_4)\pi_3$$
 $$Y_3 = (Y_1 + Y_2 + Y_3 + Y_4)\pi_3$$
 $$(\hat\pi_3)_{MLE} = \frac{Y_3}{n}$$
 
+\pagebreak
 # 8
 $$L(\theta) = \begin{cases}
 \frac{1}{\theta^{27}} & \text{if } max(X_i) \leq \theta \\
