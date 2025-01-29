@@ -20,6 +20,7 @@ We can minimize this by selecting the following:
 
 $$\hat\mu_{mle} = median(x_1, ..., x_n)$$
 
+\newpage
 # 2
 #### (a)
 [img](hw2-2.svg)
@@ -59,6 +60,7 @@ $$I(\lambda) = \frac{1}{\lambda^2}$$
 #### (e)
 $$\sqrt n(\hat\lambda_{mle} - \lambda) \xrightarrow{d} N\left(0, \lambda^2 \right)$$
 
+\newpage
 # 3
 #### (a)
 $$L(\theta; x) = \prod_{i = 1}^n (x_i + 1) \theta^2 (1 - \theta)^{x_i}$$
