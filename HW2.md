@@ -1,6 +1,6 @@
 # 1
 #### (a)
-[img](hw2-1.svg)
+![img](hw2-1.svg)
 
 It looks like a normal distribution with inverted concavity. As we increase $\mu$, it shifts right on the x-axis.
 
@@ -23,7 +23,7 @@ $$\hat\mu_{mle} = median(x_1, ..., x_n)$$
 \newpage
 # 2
 #### (a)
-[img](hw2-2.svg)
+![img](hw2-2.svg)
 
 As we increase $\lambda$ from $\lambda = 1$, the concavity gets steeper. The graph also reflects over the y-axis.
 
