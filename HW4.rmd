@@ -1,0 +1,302 @@
+# 1
+$$F_Y(y) = P(Y \leq y)$$
+$$F_Y(y) = P(2 - X \leq y)$$
+$$F_Y(y) = P(2 - y \leq X)$$
+$$F_Y(y) = 1 - P(X \leq 2 - y)$$
+$$F_Y(y) = 1 - F_X(2 - y)$$
+$$f_Y(y) = f_X(2 - y)$$
+$$f_Y(y) = \frac{1}{2}$$
+
+# 2
+#### (a)
+```{r 2a, echo=FALSE}
+library(ggplot2)
+
+data <- data.frame(
+  x = c(-2, -1, 0, 1, 2),
+  f_X = c(0.4, 0.1, 0.2, 0.1, 0.2)
+)
+
+ggplot(data, aes(x = x, y = f_X)) +
+  geom_col(fill = "skyblue", color = "blue") +
+  labs(title = "PMF",
+       x = "x",
+       y = "P(X = x)") +
+  theme_minimal()
+```
+
+#### (b)
+$$F_Y(y) = P(y \leq Y)$$
+$$F_Y(y) = P(y \leq X^2)$$
+$$F_Y(y) = P(\sqrt{y} \leq X)$$
+$$F_Y(y) = F_X(\sqrt{y})$$
+$$f_Y(y) = f_X(\sqrt{y}) * \frac{1}{2\sqrt{y}}$$
+
+```{r 2b, echo=FALSE}
+y <- data$x**2
+f_Y <- data$f_X
+
+data <- aggregate(f_Y, by = list(y), FUN = sum)
+colnames(data) <- c("y", "f_Y")
+knitr::kable(data)
+
+ggplot(data, aes(x = y, y = f_Y)) +
+  geom_col(fill = "skyblue", color = "blue") +
+  labs(title = "PMF",
+       x = "y",
+       y = "P(Y = y)") +
+  theme_minimal()
+```
+
+#### (c)
+$$E[Y] = 0 * 0.2 + 1 * 0.2 + 4 * 0.6$$
+$$E[Y] = `r 0 * 0.2 + 1 * 0.2 + 4 * 0.6`$$
+
+# 3
+#### (a)
+$$f_X(x) = e^{-x},\ X \in (-\infty, 0)$$
+$$f_Y(y) = $$
+
+TODO: ??
+
+$$0 < Y \leq 1$$
+
+#### (b)
+$$F_Y(y) = P(Y \leq y)$$
+$$F_Y(y) = P(e^{-X} \leq y)$$
+$$F_Y(y) = P(-X \leq ln(y))$$
+$$F_Y(y) = P(X > -ln(y))$$
+$$F_Y(y) = 1 - P(X \leq -ln(y))$$
+$$F_Y(y) = 1 - F_X(-ln(y))$$
+$$f_Y(y) = \frac{f_X(-ln(y))}{y}$$
+$$f_Y(y) = \frac{y}{y}$$
+$$f_Y(y) = 1$$
+
+# 4
+#### (a)
+$$f_X(x) = 3e^{-3x}$$
+TODO: ??
+
+#### (b)
+$$F_Y(y) = P(Y \leq y)$$
+$$F_Y(y) = P(X + 4 \leq y)$$
+$$F_Y(y) = P(X \leq y - 4)$$
+$$F_Y(y) = F_X(y - 4)$$
+$$f_Y(y) = f_X(y - 4)$$
+$$f_Y(y) = 3e^{-3(y - 4)}$$
+
+# 5
+#### (a)
+$$f_X(x) = 5e^{-5x}$$
+TODO: ??
+
+#### (b)
+$$F_Y(y) = P(Y \leq y)$$
+$$F_Y(y) = P\left(\frac{1}{X} \leq y\right)$$
+$$F_Y(y) = P\left(\frac{1}{y} \leq X\right)$$
+$$F_Y(y) = 1 - P\left(X \leq \frac{1}{y}\right)$$
+$$F_Y(y) = 1 - F_X\left(\frac{1}{y}\right)$$
+$$f_Y(y) = -f_X\left(\frac{1}{y}\right) * \frac{-1}{y^2}$$
+$$f_Y(y) = 5e^{-\frac{5}{y}} * \frac{1}{y^2}$$
+$$f_Y(y) = \frac{5e^{-\frac{5}{y}}}{y^2}$$
+
+# 6
+$$F_Y(y) = P(Y \leq y)$$
+$$F_Y(y) = P(e^{2X} \leq y)$$
+$$F_Y(y) = P(2X \leq ln(y))$$
+$$F_Y(y) = F_X(\frac{ln(y)}{2})$$
+$$f_Y(y) = f_X(\frac{ln(y)}{2}) * \frac{1}{2y}$$
+$$f_Y(y) = \frac{1}{\sqrt{2\pi}}\ exp\left(\frac{x^2}{2}\right) * \frac{1}{2y}$$
+
+# 7
+#### (a)
+$$f_X(x) = \frac{1}{4},\ X \in [-2, 2]$$
+$$F_X(x) = \frac{1}{4}(x + 2)$$
+TODO: ??
+
+#### (b)
+$$Y \in [0, 4]$$
+$$F_Y(y) = P(Y \leq y)$$
+$$F_Y(y) = P(X^2 \leq y)$$
+$$F_Y(y) = P(-\sqrt{y} \leq X \leq \sqrt{y})$$
+$$F_Y(y) = P(X \leq \sqrt{y}) - P(X \leq -\sqrt{y})$$
+$$F_Y(y) = F_X(\sqrt{y}) - F_X(-\sqrt{y})$$
+$$F_Y(y) = \frac{1}{4}(\sqrt{y} + 2) - \frac{1}{4}(-\sqrt{y} + 2)$$
+$$F_Y(y) = \frac{\sqrt{y}}{2}$$
+
+#### (c)
+$$f_Y(y) = \frac{1}{4\sqrt{y}}$$
+
+#### (d)
+$$E[Y] = \int_0^4 \frac{y}{4\sqrt{y}}\ dy$$
+$$E[Y] = \frac{1}{4} \int_0^4 \sqrt{y}\ dy$$
+$$E[Y] = \frac{1}{4} \left[\frac{2y^{\frac{3}{2}}}{3}\right]_0^4$$
+$$E[Y] = \frac{1}{6} \left[y^{\frac{3}{2}}\right]_0^4$$
+$$E[Y] = \frac{1}{6} (4)^{\frac{3}{2}}$$
+$$E[Y] = \frac{4}{3}$$
+
+$$E[X^2] = \int_{-2}^2 \frac{x^2}{4}\ dx$$
+$$E[X^2] = \frac{1}{4} \int_{-2}^2 x^2\ dx$$
+$$E[X^2] = \frac{1}{12} \left[x^3\right]_{-2}^2$$
+$$E[X^2] = \frac{8 + 8}{12}$$
+$$E[X^2] = \frac{4}{3}$$
+
+$$(E[X])^2 = \left( \int_{-2}^2 \frac{x}{4}\ dx \right)^2$$
+$$(E[X])^2 = \left( \frac{1}{4} \int_{-2}^2 x\ dx \right)^2$$
+$$(E[X])^2 = \left( \frac{1}{8} \left[x^2\right]_{-2}^2 \right)^2$$
+$$(E[X])^2 = \left( \frac{1}{8} * 0 \right)^2$$
+$$(E[X])^2 = 0$$
+
+$$E[X^2] \neq (E[X])^2$$
+
+# 8
+#### (a)
+$$f_X(x) = \frac{1}{3},\ X \in [-1, 2]$$
+$$F_X(x) = \frac{1}{3}(x + 1)$$
+TODO: ??
+
+$$Y \in [0, 2]$$
+
+#### (b)
+$$F_Y(y) = P(Y \leq y)$$
+$$F_Y(y) = P(|X| \leq y)$$
+
+Case where $y \in [0, 1]$:
+$$F_Y(y) = P(-y \leq X \leq y)$$
+$$F_Y(y) = P(X \leq y) - P(X \leq -y)$$
+$$F_Y(y) = \frac{1}{3}(y + 1) - \frac{1}{3}(-y + 1)$$
+$$F_Y(y) = \frac{1}{3}y + \frac{1}{3}y$$
+$$F_Y(y) = \frac{2}{3}y$$
+
+Case where $y \in [1, 2]$:
+$$F_Y(y) = P(-1 \leq X \leq y)$$
+$$F_Y(y) = P(X \leq y) - P(X \leq -1)$$
+$$F_Y(y) = P(X \leq y) - P(X \leq -1)$$
+$$F_Y(y) = F_X(y) - F_X(-1)$$
+$$F_Y(y) = \frac{y + 1}{3}$$
+
+Put it together:
+$$
+F_Y(y) = \begin{cases}
+\frac{2}{3}y & \text{if } y\in[0, 1] \\
+\frac{y + 1}{3} & \text{if } y\in[1, 2]
+\end{cases}
+$$
+
+#### (c)
+$$
+f_Y(y) = \begin{cases}
+\frac{2}{3} & \text{if } y\in[0, 1] \\
+\frac{1}{3} & \text{if } y\in[1, 2]
+\end{cases}
+$$
+
+#### (d)
+```{r 9d, echo=FALSE}
+# Create a data frame for step plot
+df <- data.frame(
+  x = c(-2, -1, -1, 2, 2, 3),  # Support region
+  fx = c(0, 0, 1 / 3, 1 / 3, 0, 0)  # Step function shape
+)
+
+# Plot using ggplot2 with geom_step and filled area
+ggplot() +
+  # Fill the area under the curve
+  geom_ribbon(data = df, aes(x = x, ymin = 0, ymax = fx), fill = "lightblue", alpha = 0.5) +
+  # Step function for PDF
+  geom_step(data = df, aes(x, fx), color = "blue") +
+  labs(title = "PDF of Uniform Distribution U(-1,2)",
+       x = "X",
+       y = "Density f_X(x)") +
+  theme_minimal()
+
+# Create a data frame with piecewise segments
+df <- data.frame(
+  x = c(-1, 0, 0, 1, 1, 2, 2, 3),  # x-values for step changes
+  fx = c(0, 0, 2/3, 2/3, 1/3, 1/3, 0, 0)  # Corresponding f_Y(y) values
+)
+
+# Plot using ggplot2 with geom_step
+ggplot(df, aes(x, fx)) +
+  geom_step(direction = "hv", color = "blue") +  # Step function
+  geom_segment(aes(x = 0, xend = 1, y = 2/3, yend = 2/3), color = "blue") +  # First constant part
+  geom_segment(aes(x = 1, xend = 2, y = 1/3, yend = 1/3), color = "blue") +  # Second constant part
+  labs(title = "PDF of Y = |X|", x = "Y", y = "Density f_Y(y)") +
+  geom_ribbon(data = df, aes(x = x, ymin = 0, ymax = fx), fill = "lightblue", alpha = 0.5) +
+  theme_minimal()
+```
+
+# 9
+#### (a)
+$$f_X(x) = \frac{1}{2},\ X \in [0, 2]$$
+TODO: ??
+
+$$Y \in [-2, 4]$$
+
+#### (b)
+$$F_Y(y) = P(Y \leq y)$$
+$$F_Y(y) = P(3X - 2 \leq y)$$
+$$F_Y(y) = P(3X \leq y + 2)$$
+$$F_Y(y) = P(X \leq \frac{y + 2}{3})$$
+$$F_Y(y) = F_X(\frac{y + 2}{3})$$
+$$f_Y(y) = \frac{1}{3}f_X(\frac{y + 2}{3})$$
+$$f_Y(y) = \frac{1}{3} * \frac{1}{2}$$
+$$f_Y(y) = \frac{1}{6}$$
+
+#### (c)
+```{r 9c, echo=FALSE}
+# Create a data frame for step plot
+df <- data.frame(
+  x = c(-1, 0, 0, 2, 2, 3),  # Support region
+  fx = c(0, 0, 1 / 2, 1 / 2, 0, 0)  # Step function shape
+)
+
+# Plot using ggplot2 with geom_step and filled area
+ggplot() +
+  # Fill the area under the curve
+  geom_ribbon(data = df, aes(x = x, ymin = 0, ymax = fx), fill = "lightblue", alpha = 0.5) +
+  # Step function for PDF
+  geom_step(data = df, aes(x, fx), color = "blue") +
+  labs(title = "PDF",
+       x = "X",
+       y = "Density f_X(x)") +
+  theme_minimal()
+
+df <- data.frame(
+  x = c(-3, -2, -2, 4, 4, 5),  # x-values for step changes
+  fx = c(0, 0, 1 / 6, 1 / 6, 0, 0)  # Corresponding f_Y(y) values
+)
+
+# Plot using ggplot2 with geom_step and filled area
+ggplot() +
+  # Fill the area under the curve
+  geom_ribbon(data = df, aes(x = x, ymin = 0, ymax = fx), fill = "lightblue", alpha = 0.5) +
+  # Step function for PDF
+  geom_step(data = df, aes(x, fx), color = "blue") +
+  labs(title = "PDF",
+       x = "Y",
+       y = "Density f_Y(x)") +
+  theme_minimal()
+```
+
+# 10
+#### (a)
+$$M_X(t) = E[e^{tX}] = \sum_x e^{tx} P(X = x)$$
+$$M_X(t) = e^{-1t} * 0.4 + e^{0t} * 0.2 + e^{1t} * 0.4$$
+$$M_X(t) = e^{-t} * 0.4 + 0.2 + e^{t} * 0.4$$
+$$M_X(t) = 0.4e^{t} + 0.4e^{-t} + 0.2$$
+
+#### (b)
+$$M_Y(t) = [M_X(t)]^2$$
+$$M_Y(t) = [0.4e^{t} + 0.4e^{-t} + 0.2]^2$$
+$$M_Y(t) = 0.16e^{-2t} + 0.16e^{-t} + 0.36 + 0.16e^t + 0.16e^{2t}$$
+
+#### (c)
+```{r 10c, echo=FALSE}
+df <- data.frame(
+  y = c(-2, -1, 0, 1, 2),
+  f_Y = c(0.16, 0.16, 0.36, 0.16, 0.16)
+)
+
+knitr::kable(df)
+```
